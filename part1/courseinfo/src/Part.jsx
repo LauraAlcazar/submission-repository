@@ -1,9 +1,6 @@
-const Part = (exercise) => {     
+const Part = ({part}) => {  
     return (
-        <>
-            {exercise.exerciseTitle} {exercise.exerciseNumber}
-
-        </>
+        <p>{part.name} {part.exercises}</p>
     )
 }
 export default Part
