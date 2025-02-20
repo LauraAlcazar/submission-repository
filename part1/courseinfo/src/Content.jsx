@@ -4,7 +4,7 @@ const Content = ({ exercises }) => {
         <>
             {exercises.map((part, index) => (
                 <p key={index}>
-                {part.exerciseTitle}: {part.exercisesNumber}
+                {part.name}: {part.exercises}
                 <Part exercise={part} />
                 </p>
             ))}
