@@ -10,6 +10,14 @@ const Statistics = (props) => {
   const totalComents = props.good.goodValue + props.neutral.neutralValue + props.bad.badValue;
   const averageComents = (props.good.goodValue*1 + props.neutral.neutralValue*0 + props.bad.badValue*-1)/totalComents;
   const positivePercentage = props.good.goodValue/totalComents*100 + " %";
+  if (totalComents === 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </div>
+    )
+  }
   return (
     <div>
       <h1>statistics</h1>
