@@ -7,12 +7,18 @@ const Button = (props) => (
 )
 
 const Statistics = (props) => {
+  const totalComents = props.good.goodValue + props.neutral.neutralValue + props.bad.badValue;
+  const averageComents = (props.good.goodValue*1 + props.neutral.neutralValue*0 + props.bad.badValue*-1)/totalComents;
+  const positivePercentage = props.good.goodValue/totalComents*100 + " %";
   return (
     <div>
       <h1>statistics</h1>
       <p>{props.good.goodText} {props.good.goodValue}</p>
       <p>{props.neutral.neutralText} {props.neutral.neutralValue}</p>
       <p>{props.bad.badText} {props.bad.badValue}</p>
+      <p>all {totalComents}</p>
+      <p>average {averageComents}</p>
+      <p>positive {positivePercentage}</p>
     </div>
   )
 }
