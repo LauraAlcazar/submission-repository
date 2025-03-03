@@ -5,6 +5,16 @@ const Button = (props) => (
   </button>
 )
 
+const Anecdote = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+      {props.anecdotes[props.selected]}
+      <p>has {props.votes[props.selected]} votes</p>
+    </div>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -28,13 +38,17 @@ const App = () => {
     setVotes(copy);
   }
 
+  const mostVotes = Object.keys(votes).reduce((a, b) => votes[a] > votes[b] ? a : b);
+
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <br/>
       <Button handleClick={() => changeVotes()} text="vote" />
       <Button handleClick={() => setSelected(Math.floor(Math.random() * (7 - 0) + 0))} text="next anecdote" />
       <p>has {votes[selected]} votes</p>
+      <Anecdote title="Anecdote with most votes" anecdotes={anecdotes} selected={mostVotes} votes={votes} />
     </div>
   )
 }
